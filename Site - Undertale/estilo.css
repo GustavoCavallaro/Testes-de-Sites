@@ -1,0 +1,20 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root
+{
+  --bg: #000;
+  --txt: #FFF;
+}
+
+body
+{
+  color: var(--txt);
+  background-color: var(--bg);
+  font-size: 1rem;
+  font-family: arial;
+}
