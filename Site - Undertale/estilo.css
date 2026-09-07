@@ -9,19 +9,22 @@
 {
   --bg: #000;
   --txt: #FFF;
+
+  --paddingComputerTablet: 1.5rem;
+  --paddingMobile: 1rem;
 }
 
 body
 {
   color: var(--txt);
-  /* background-color: var(--bg); */
+  background-color: var(--bg);
   font-size: 1rem;
-  font-family: arial;
+  font-family: "Pixelify Sans", sans-serif;
 }
 
 header
 {
-  width: 100vw;
+  max-width: 100vw;
   height: auto;
   background-color: black;
   display: flex;
@@ -49,6 +52,13 @@ header div
   object-fit: cover;
 }
 
+.logo-text
+{
+  width: 200px;
+  height: 50px;
+  object-fit: cover;
+}
+
 /* MENU */
 nav
 {
@@ -71,5 +81,100 @@ nav
   color: white;
   padding: 1rem;
   text-decoration: none;
-  transition: 0.15s;
+  transition: 0.3s;
 }
+
+.menu li a:hover
+{
+  border-bottom: solid white 1px;
+}
+
+/* main */
+
+main
+{
+  width: 100%;
+  height: 100dvh;
+}
+
+section
+{
+  width: 100%;
+  padding:  120px var(--paddingComputerTablet);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.title
+{
+  padding: 200px 0 300px 0;
+}
+
+.title h1
+{
+  font-size: 4rem;
+}
+
+figure
+{
+  display: flex;  
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 64px;
+}
+
+figcaption
+{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.flowey figure img
+{
+  width: 325px;
+  height: 379px;
+  object-fit: cover;
+}
+
+.sans figure img
+{
+  width: 331px;
+  height: 479px;
+  object-fit: cover;
+}
+
+.papyrus figure img
+{
+  width: 340px;
+  height: 479px;
+  object-fit: cover;
+}
+
+.twoUndyne
+{
+  min-width: 364px;
+  min-height: 479px;
+  position: relative;
+}
+
+.twoUndyne img
+{
+  width: 364px;
+  height: 479px;
+  position: absolute;
+  object-fit: cover;
+}
+
+.asgore figure img
+{
+  width: 618px;
+  height: 479px;
+  object-fit: cover;
+}
+
+/* Footer */
