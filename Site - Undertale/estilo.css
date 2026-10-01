@@ -42,20 +42,21 @@ header div
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  gap: var(--paddingComputerTablet);
 }
 
 .logo
 {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   padding: 0.5rem;
   object-fit: cover;
 }
 
 .logo-text
 {
-  width: 200px;
-  height: 50px;
+  width: 400px;
+  height: 100px;
   object-fit: cover;
 }
 
@@ -80,6 +81,8 @@ nav
   height: 100%;
   color: white;
   padding: 1rem;
+  border-bottom: solid black 3px;
+  font-size: 1.5rem;
   text-decoration: none;
   transition: 0.3s;
 }
@@ -94,7 +97,7 @@ nav
 main
 {
   width: 100%;
-  height: 100dvh;
+  height: auto;
 }
 
 section
@@ -105,16 +108,34 @@ section
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  text-align: start;
 }
 
 .title
 {
+  text-align: center;
   padding: 200px 0 300px 0;
 }
 
-.title h1
+h1
 {
   font-size: 4rem;
+  letter-spacing: 4%;
+  line-height: 160%;
+}
+
+h2
+{
+  font-size: 2.25rem;
+  letter-spacing: -2%;
+  line-height: 120%;
+}
+
+p
+{
+  font-size: 1.125rem;
+  letter-spacing: -0.5%;
+  line-height: 145%;
 }
 
 figure
@@ -170,6 +191,22 @@ figcaption
   object-fit: cover;
 }
 
+.uGenocide
+{
+  animation: op 5s linear infinite 1s;
+}
+
+@keyframes op {
+  0%, 40%, 100%
+  {
+    opacity: 0;
+  }
+  50%, 90%
+  {
+    opacity: 1;
+  }
+}
+
 .asgore figure img
 {
   width: 618px;
@@ -178,3 +215,146 @@ figcaption
 }
 
 /* Footer */
+footer
+{
+  width: 100%;
+  height: auto;
+  padding: 120px var(--paddingComputerTablet);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 
+  "container nav";
+  gap: 6rem;
+}
+
+.container
+{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px auto 50px;
+  grid-template-areas: 
+  "logo"
+  "desc"
+  "icon";
+  gap: 3.5rem;
+}
+
+.icon
+{
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.favicon
+{
+  width: 25px;
+}
+
+footer nav
+{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 300px;
+  grid-template-areas: 
+  "ul-1 ul-2 ul-3";
+  justify-content: end;
+  gap: 2.5rem;
+}
+
+footer nav ul
+{
+  list-style-type: none;
+}
+
+footer nav ul li 
+{
+  margin-bottom: 0.5rem;
+}
+
+
+/* TABLE */
+@media (max-width: 1280px) {
+  h1
+{
+  font-size: 2.5rem;
+  letter-spacing: 4%;
+  line-height: 160%;
+}
+  
+  figure
+  {
+    flex-direction: column-reverse;
+    align-content: center;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  header
+  {
+    flex-direction: column;
+    align-content: center;
+  }
+
+  header div
+  {
+    width: 100%;
+  }
+  
+  nav
+  {
+    width: 100%;
+  }
+
+  h1
+  {
+    font-size: 1.25rem;
+    letter-spacing: 4%;
+    line-height: 160%;
+  }
+
+  h2
+  {
+    font-size: 1.5rem;
+    letter-spacing: -2%;
+    line-height: 120%;
+  }
+
+    .flowey figure img
+  {
+    width: 287px;
+    height: 335px;
+  }
+
+  .sans figure img
+  {
+    width: 287px;
+    height: 415px;
+  }
+
+  .papyrus figure img
+  {
+    width: 287px;
+    height: 404px;
+  }
+
+  .twoUndyne
+  {
+    min-width: 287px;
+    min-height: 377px;
+  }
+
+  .twoUndyne img
+  {
+    width: 287px;
+    height: 377px;
+  }
+
+  .asgore figure img
+  {
+    width: 287px;
+    height: 222px;
+    object-fit: cover;
+  }
+}
