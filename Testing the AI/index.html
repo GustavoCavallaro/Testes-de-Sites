@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Elementos 3D | Minecraft</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<main class="scene-shell">
+			<header class="topbar">
+				<div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+				<div>
+					<p class="eyebrow">CATÁLOGO / 001–007</p>
+					<h1>Elementos 3D</h1>
+				</div>
+				<a class="catalog-link" href="#catalogo-3d">ver elementos 3D <span>↓</span></a>
+				<div class="status"><i></i> ao vivo</div>
+			</header>
+
+			<section id="catalogo-3d" class="stage" aria-label="Catálogo 3D dos blocos e da árvore">
+				<div class="sun-glow"></div>
+				<div class="stage-copy">
+					<p class="kicker">OVERWORLD · BLOCOS NATURAIS</p>
+					<h2>Peças de<br /><em>mundo</em> em movimento.</h2>
+					<p class="description">Terra, grama, madeira, tronco, água, folhas e uma árvore reconstruídos em 3D para você explorar.</p>
+				</div>
+				<div id="scene" class="canvas-wrap"></div>
+				<div class="hint"><span class="mouse-icon"><b></b></span> arraste para explorar</div>
+				<div class="ground-label">Y 064 <span></span> X 128</div>
+			</section>
+
+			<footer class="bottom-bar">
+				<div class="spec"><span>ELEMENTOS</span><strong>7 ITENS</strong></div>
+				<div class="spec"><span>BIOMA</span><strong>PLANÍCIE</strong></div>
+				<div class="spec"><span>LUZ</span><strong>15 <small>☀</small></strong></div>
+				<button id="reset-camera" type="button"><span>↻</span> redefinir vista</button>
+			</footer>
+		</main>
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+				}
+			}
+		</script>
+		<script type="module" src="script.js"></script>
+	</body>
+</html>

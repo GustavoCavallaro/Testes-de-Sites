@@ -1,0 +1,34 @@
+body {
+  overflow: hidden;
+}
+
+div {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+path {
+  fill: rgb(30, 214, 30);
+  stroke: black;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-dasharray: 270;
+  stroke-dashoffset: 270;
+  opacity: 0;
+  animation: appear 6s linear forwards;
+}
+
+@keyframes appear {
+  33% {
+    opacity: 1;
+    stroke-dashoffset: 270;
+  }
+  100% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+

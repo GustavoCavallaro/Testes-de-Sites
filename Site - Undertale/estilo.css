@@ -42,20 +42,21 @@ header div
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  gap: var(--paddingComputerTablet);
 }
 
 .logo
 {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   padding: 0.5rem;
   object-fit: cover;
 }
 
 .logo-text
 {
-  width: 200px;
-  height: 50px;
+  width: 400px;
+  height: 100px;
   object-fit: cover;
 }
 
@@ -80,6 +81,8 @@ nav
   height: 100%;
   color: white;
   padding: 1rem;
+  border-bottom: solid black 3px;
+  font-size: 1.5rem;
   text-decoration: none;
   transition: 0.3s;
 }
@@ -94,7 +97,7 @@ nav
 main
 {
   width: 100%;
-  height: 100dvh;
+  height: auto;
 }
 
 section
@@ -109,12 +112,42 @@ section
 
 .title
 {
+  text-align: center;
   padding: 200px 0 300px 0;
 }
 
-.title h1
+h1
 {
+  color: transparent;
+  background-color: none;
+  background: linear-gradient(to right, yellow, white 30% 70%, cyan 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
   font-size: 4rem;
+  letter-spacing: 4%;
+  line-height: 160%;
+}
+
+@keyframes appear
+{
+  100%
+  {
+    fill: white;
+  }
+}
+
+h2
+{
+  font-size: 2.25rem;
+  letter-spacing: -2%;
+  line-height: 120%;
+}
+
+p
+{
+  font-size: 1.125rem;
+  letter-spacing: -0.5%;
+  line-height: 145%;
 }
 
 figure
@@ -170,6 +203,22 @@ figcaption
   object-fit: cover;
 }
 
+.uGenocide
+{
+  animation: op 5s linear infinite 1s;
+}
+
+@keyframes op {
+  0%, 40%, 100%
+  {
+    opacity: 0;
+  }
+  45%, 95%
+  {
+    opacity: 1;
+  }
+}
+
 .asgore figure img
 {
   width: 618px;
@@ -178,3 +227,240 @@ figcaption
 }
 
 /* Footer */
+footer
+{
+  width: 100%;
+  height: auto;
+  padding: 120px var(--paddingComputerTablet);
+  display: flex;
+  flex-direction: row;
+  gap: 6rem;
+}
+
+.container
+{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3.5rem;
+}
+
+.icon
+{
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.favicon
+{
+  width: 25px;
+}
+
+footer nav
+{
+  display: flex;
+  margin-left: auto;
+  gap: 2rem;
+}
+
+footer .icon
+{
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer nav ul
+{
+  list-style-type: none;
+}
+
+footer nav ul li 
+{
+  margin-bottom: 0.5rem;
+}
+
+
+/* TABLE */
+@media (max-width: 1280px) {
+  h1
+  {
+    font-size: 2.5rem;
+    letter-spacing: 4%;
+    line-height: 160%;
+  }
+
+  h2
+  {
+    text-align: center; 
+  }
+
+  figure
+  {
+    flex-direction: column-reverse;
+    align-content: center;
+  }
+
+  header
+  {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header div
+  {
+    margin-right: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header nav
+  {
+    justify-content: center;
+  }
+
+  .logo
+  {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo-text
+  {
+    width: 300px;
+    height: 170px;
+  }
+  
+  nav
+  {
+    width: 100%;
+  }
+
+  .menu
+  {
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  header
+  {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header div
+  {
+    margin-right: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header nav
+  {
+    justify-content: center;
+  }
+
+  .logo
+  {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo-text
+  {
+    width: 150px;
+    height: 85px;
+  }
+  
+  nav
+  {
+    width: 100%;
+  }
+
+  .menu
+  {
+    justify-content: center;
+  }
+
+  h1
+  {
+    font-size: 1.25rem;
+    letter-spacing: 4%;
+    line-height: 160%;
+  }
+
+  h2
+  {
+    font-size: 1.5rem;
+    letter-spacing: -2%;
+    line-height: 120%;
+    text-align: center;
+  }
+
+    .flowey figure img
+  {
+    width: 287px;
+    height: 335px;
+  }
+
+  .sans figure img
+  {
+    width: 287px;
+    height: 415px;
+  }
+
+  .papyrus figure img
+  {
+    width: 287px;
+    height: 404px;
+  }
+
+  .twoUndyne
+  {
+    min-width: 287px;
+    min-height: 377px;
+  }
+
+  .twoUndyne img
+  {
+    width: 287px;
+    height: 377px;
+  }
+
+  .asgore figure img
+  {
+    width: 287px;
+    height: 222px;
+    object-fit: cover;
+  }
+
+  footer
+  {
+    flex-direction: column;
+  }
+
+  .container
+  {
+    align-items: center
+  }
+
+  .container figcaption
+  {
+    text-align: center
+  }
+
+  footer nav
+  {
+    justify-content: center;
+    gap: 4rem;
+  }
+}

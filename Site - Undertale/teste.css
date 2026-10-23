@@ -1,0 +1,230 @@
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root
+{
+  --header: #d0FFa1;
+  --header2: #E1FFB2;
+  --header3: #bFFFA1;
+  --main: #a1d0ff;
+  --main2: #a1f4ff;
+  --main3: #90A0FF;
+  --main4: #5060FF;
+  --footer: #FFd0a1;
+
+  --padding: 1.5rem;
+  --paddingMobile: 1rem;
+}
+
+body
+{
+  font-size: 2rem;
+  display: grid;
+  background-color: #000;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto auto;
+  grid-template-areas: 
+  "header"
+  "main"
+  "footer";
+}
+
+header img,
+section img,
+footer img
+{
+  width: 150px;
+  height: 150px;
+  background-color: var(--main4);
+}
+
+h2,
+p
+{
+  width: 100%;
+  height: 50px;
+  background-color: var(--main3);
+}
+
+a
+{
+  text-decoration: none;
+}
+
+ul
+{
+  list-style-type: none;
+}
+
+/*
+ *==================================================================
+ *============================= HEADER =============================
+ *==================================================================
+*/
+
+header
+{
+  width: 100%;
+  background-color: var(--header);
+  padding: var(--padding);
+  display: flex;
+  justify-content: space-between; /* Ver se o gap auto substitui o justify */
+  align-items: center;
+  gap: auto;
+}
+
+header .logo
+{
+  width: 100%;
+  height: 100%;
+  gap: var(--padding);
+}
+
+.heart
+{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.name
+{
+  width: 400px;
+  height: 100px;
+  object-fit: cover;
+}
+
+nav
+{
+  width: 100%;
+  height: 100%;
+  background-color: var(--headerNav);
+  display: flex;
+  justify-content: end;
+}
+
+.menu
+{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: 2.5rem;
+}
+
+.menu li
+{
+  height: 100%;
+  background-color: var(--header3);
+}
+
+.menu li a
+{
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 30px;
+}
+
+/*
+ *==================================================================
+ *============================== MAIN ==============================
+ *==================================================================
+*/
+
+main
+{
+  width: 100%;
+  height: auto;
+  background-color: var(--main);
+  padding: var(--padding);
+  display: grid;
+  grid-auto-columns: auto;
+  grid-auto-rows: auto;
+  gap: 240px;
+}
+
+section
+{
+  width: 100%;
+  height: auto;
+  background-color: var(--main2);
+  padding: 120px 0;
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
+  grid-template-areas: 
+  "content img";
+  gap: 64px;
+}
+
+.title
+{
+ padding: 200px 0 300px 0; 
+}
+
+.asgore
+{
+  padding: 120px 0 300px 0;
+}
+
+.content
+{
+  display: grid;
+  grid-auto-columns: auto;
+  grid-auto-rows: auto;
+  grid-template-areas: 
+  "subtitle"
+  "text";
+  gap: var(--padding);
+}
+
+.theUndyingHero
+{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "merge";
+}
+
+.theUndyingHero img
+{
+  opacity: 0.5;
+}
+
+/*
+ *==================================================================
+ *============================= FOOTER =============================
+ *==================================================================
+*/
+
+footer
+{
+  background-color: var(--footer);
+  padding: var(--padding);
+  display: grid;
+  grid-auto-columns: auto;
+  grid-auto-rows: auto;
+  grid-template-areas: 
+  "footerContent footerNav";
+  gap: 3.5rem;
+}
+
+.companyDescription
+{
+
+}
+
+.icons
+{
+
+}
+
+nav
+{
+
+}

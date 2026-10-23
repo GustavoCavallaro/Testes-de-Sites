@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * 
+    {
+      margin: 0;
+      padding: 0;
+    }
+
+    body
+    {
+      background-image: url("./fundo.jpg");
+      background-size: 5000px;
+      background-position: 0% 0%;
+      animation: parallax 20s linear infinite;
+    }
+
+    @keyframes parallax
+    {
+      to
+      {
+        background-position-y: -120%;
+      }
+    }
+
+    .spaceShip
+    {
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <img src="./nave.png" class="spaceShip">
+  <script>
+    let pos = JSON.parse(localStorage.getItem('pos')) || [0, 0];
+    let size = [356, 548];
+    let speed = 8;
+    let keys = {
+      w: false,
+      a: false,
+      s: false,
+      d: false
+    };
+
+    const spaceShip = document.querySelector('.spaceShip');
+
+    spaceShip.style.width = `${size[0]}px`;
+    spaceShip.style.height = `${size[1]}px`;
+    spaceShip.style.translate = `${pos[0]}px ${pos[1]}px`;
+
+    window.onkeydown = function (event) {
+      turnKeysTrue();
+    }
+
+    window.onkeyup = function (event) {
+      turnKeysFalse();
+    }
+
+    function turnKeysTrue () {
+      if (event.key === 'w' && !keys.w) {
+        keys.w = true;
+      }
+      if (event.key === 'a' && !keys.a) {
+        keys.a = true;
+      }
+      if (event.key === 's' && !keys.s) {
+        keys.s = true;
+      }
+      if (event.key === 'd' && !keys.d) {
+        keys.d = true;
+      }
+    }
+
+    function turnKeysFalse() {
+      if (event.key === 'w' && keys.w) {
+        keys.w = false;
+      }
+      if (event.key === 'a' && keys.a) {
+        keys.a = false;
+      }
+      if (event.key === 's' && keys.s) {
+        keys.s = false;
+      }
+      if (event.key === 'd' && keys.d) {
+        keys.d = false;
+      }
+    }
+    
+    function moveSpaceShip () {
+      if (keys.w) {
+        if (pos[1] - speed < 0) {
+        } else {
+          pos[1] -= speed;
+        }
+      }
+      if (keys.a) {
+        if (pos[0] - speed < 0) {
+        } else {
+          pos[0] -= speed;
+        }
+      }
+      if (keys.s) {
+        if (pos[1] + speed + size[1] > innerHeight) {
+        } else {
+          pos[1] += speed;
+        }
+      }
+      if (keys.d) {
+        if (pos[0] + speed + size[0] > innerWidth) {
+      } else {
+        pos[0] += speed;
+      }
+      }
+      
+      spaceShip.style.translate = `${pos[0]}px ${pos[1]}px`;
+
+      localStorage.setItem('pos', JSON.stringify(pos));
+      
+      setTimeout(moveSpaceShip, 16);
+    }
+
+    moveSpaceShip();
+    
+
+  </script>
+</body>
+</html>

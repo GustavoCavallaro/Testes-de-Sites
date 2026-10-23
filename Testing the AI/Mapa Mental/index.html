@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clareira | Canvas mental</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main class="app">
+		<header class="topbar">
+			<a class="brand" href="#" aria-label="Clareira">
+				<span class="brand-mark"><i></i><i></i><i></i></span>
+				<span><strong>clareira</strong><small>canvas mental</small></span>
+			</a>
+
+			<label class="title-wrap">
+				<span class="save-dot"></span>
+				<input id="mapTitle" value="Meu mapa mental" aria-label="Nome do mapa">
+				<small id="saveStatus">salvo agora</small>
+			</label>
+
+			<div class="top-actions">
+				<button class="ghost-button" id="undoButton" title="Desfazer">↶</button>
+				<button class="ghost-button" id="redoButton" title="Refazer">↷</button>
+				<button class="export-button" id="exportButton">↓ Exportar PNG</button>
+			</div>
+		</header>
+
+		<section class="workspace">
+			<aside class="sidebar">
+				<div class="section-heading"><span>seus mapas</span><button id="newMapButton" title="Novo mapa">+</button></div>
+				<button class="map-entry active"><i class="map-color coral"></i><span><b>Meu mapa mental</b><small>editado agora</small></span><em>•••</em></button>
+				<button class="map-entry"><i class="map-color blue"></i><span><b>Planejamento Q4</b><small>ontem</small></span><em>•••</em></button>
+				<button class="map-entry"><i class="map-color green"></i><span><b>Ideias de produto</b><small>12 set</small></span><em>•••</em></button>
+				<div class="sidebar-note"><b>Uma ideia por vez</b><p>Comece no centro. Use Tab para criar uma ramificação.</p></div>
+				<div class="user-row"><span>LC</span><strong>Laura Campos<small>plano pessoal</small></strong><i>⌄</i></div>
+			</aside>
+
+			<section class="canvas-area">
+				<div class="canvas-toolbar">
+					<div class="tool-group">
+						<button class="tool-button active" id="selectTool">↖ Selecionar</button>
+						<button class="tool-button" id="addButton">＋ Nova ideia</button>
+					</div>
+					<div class="tool-group zoom-tools">
+						<span id="zoomValue">100%</span>
+						<button class="circle-button" id="zoomOut" title="Diminuir zoom">−</button>
+						<button class="circle-button" id="zoomIn" title="Aumentar zoom">+</button>
+						<button class="circle-button" id="centerButton" title="Centralizar mapa">⌖</button>
+					</div>
+				</div>
+
+				<div class="canvas-frame">
+					<div class="canvas-grid"></div>
+					<canvas id="mindCanvas" aria-label="Mapa mental interativo"></canvas>
+					<div class="canvas-hint">arraste os nós <span></span> clique duas vezes para editar</div>
+				</div>
+
+				<footer class="canvas-footer"><span><kbd>Tab</kbd> nova ramificação</span><span><i></i> salvamento automático</span></footer>
+			</section>
+
+			<aside class="inspector">
+				<div class="inspector-title"><div><span>inspetor</span><h1 id="nodeHeading">Ideia principal</h1></div><button id="hideInspector" title="Ocultar inspetor">×</button></div>
+				<label class="field-label" for="nodeInput">Texto da ideia</label>
+				<textarea id="nodeInput" rows="3" placeholder="Escreva uma ideia..."></textarea>
+				<div class="field-block"><label class="field-label">Cor do nó</label><div class="swatches"><button data-color="coral" class="swatch coral active" title="Coral"></button><button data-color="blue" class="swatch blue" title="Azul"></button><button data-color="green" class="swatch green" title="Verde"></button><button data-color="lilac" class="swatch lilac" title="Lilás"></button></div></div>
+				<div class="field-block"><label class="field-label">Tamanho</label><div class="sizes"><button data-size="small">P</button><button data-size="medium" class="active">M</button><button data-size="large">G</button></div></div>
+				<button class="primary-button" id="childButton">＋ Adicionar ramificação</button>
+				<button class="delete-button" id="deleteButton">Excluir ideia</button>
+				<div class="tip"><strong>Mapa em movimento</strong><p>Arraste o fundo para navegar. Use a roda do mouse para aproximar.</p></div>
+			</aside>
+		</section>
+	</main>
+	<script src="app.js"></script>
+</body>
+</html>
