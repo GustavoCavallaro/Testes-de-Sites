@@ -1,0 +1,32 @@
+  * 
+{
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body
+{
+  width: 100%;
+  height: 100vh;
+  background-image: url("./fundo.jpg");
+  background-size: 5000px;
+  background-position: 0% 0%;
+  animation: parallax 20000s linear infinite;
+
+  position: relative;
+}
+
+@keyframes parallax
+{
+  to
+  {
+    background-position-y: -120000%;
+  }
+}
+
+.spaceShip
+{
+  pointer-events: none;
+  user-select: none;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div
+    {
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle, #262626 0%, #0f0f0f 60%, black 80%);
+      background-size: 50px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      border-radius: 999px;
+      box-shadow: 0 0 0 2px blue;
+      position: relative;
+      filter: hue-rotate(0deg);
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <script>
+
+    let divElement = document.querySelector('div');
+
+    divElement.style.filter = `hue-rotate(${JSON.parse(localStorage.getItem('color'))}deg)`;
+    divElement.style.translate = `${JSON.parse(localStorage.getItem('left'))}px ${JSON.parse(localStorage.getItem('top'))}px`;
+
+    window.onkeydown = function (event) {
+      let left_pos = JSON.parse(localStorage.getItem('left')) || 0;
+      let top_pos = JSON.parse(localStorage.getItem('top')) || 0;
+      const speed = 10;
+      let color = JSON.parse(localStorage.getItem('color')) || 0;
+
+      let divElement = document.querySelector('div');
+
+      if (event.key === 'ArrowRight') {
+        left_pos += speed;
+        color += 10;
+      }
+      else if (event.key === 'ArrowLeft') {
+        left_pos -= speed;
+        color += 10;
+      }
+      else if (event.key === 'ArrowUp') {
+        top_pos -= speed;
+        color += 10;
+      }
+      else if (event.key === 'ArrowDown') {
+        top_pos += speed;
+        color += 10;
+      }
+
+      divElement.style.filter = `hue-rotate(${color}deg)`;
+      divElement.style.translate = `${left_pos}px ${top_pos}px`;
+
+      localStorage.setItem('left', JSON.stringify(left_pos));
+      localStorage.setItem('top', JSON.stringify(top_pos));
+      localStorage.setItem('color', JSON.stringify(color));
+    }
+  </script>
+</body>
+</html>
