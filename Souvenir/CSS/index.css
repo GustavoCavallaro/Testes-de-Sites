@@ -1,3 +1,8 @@
+:root
+{
+  --radial: rgb(0, 204, 255);
+}
+
 header
 {
   background-clip: text;
@@ -20,8 +25,8 @@ main::before
 {
   content: "";
   position: absolute;
-  background: radial-gradient(circle, transparent 0%, rgba(169, 245, 255) 40%);
-  background-size: 130%;
+  background: radial-gradient(circle, transparent 0%, rgb(169, 245, 255) 50%, rgb(103, 212, 255) 90%);
+  background-size: 135%;
   background-repeat: no-repeat;
   inset: 0;
   pointer-events: none;
@@ -60,14 +65,14 @@ section
 }
 
 @font-face {
-  font-family: "Snow";
-  src: url(../snow-blue.regular.otf);
+  font-family: "Ice Age";
+  src: url(../Fonts/IceAgeMovieFont-KAqA.ttf);
 }
 
 h1
 {
   color: rgb(0, 204, 255);
-  font-family: "Snow";
+  font-family: "Ice Age";
   font-size: 4rem;
   letter-spacing: 30%;
   text-shadow: 
@@ -80,6 +85,17 @@ h1
   justify-content: center;
   align-items: center;
   flex-grow: 4;
+}
+
+p,
+button
+{
+  font-size: 1.5rem;
+}
+
+a
+{
+  flex-grow: 1;
 }
 
 p
@@ -100,5 +116,19 @@ button
 {
   width: 100%;
   height: 100%;
+  color: white;
+  background-color: var(--radial);
+  border: solid black 2px;
   border-radius: 999px;
+  transition: 3s;
+}
+
+button:hover
+{
+  
+}
+
+button:active
+{
+
 }

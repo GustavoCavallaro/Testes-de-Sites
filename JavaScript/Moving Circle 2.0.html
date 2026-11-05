@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *
+    {
+      margin: 0;
+      padding: 0;
+    }
+
+    body
+    {
+      background-color: #000;
+    }
+
+    div
+    {
+      width: 50px;
+      height: 50px;
+      background: cyan;
+      background-size: 50px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      border-radius: 999px;
+      box-shadow: 
+      0 0 4px 0 cyan,
+      0 0 8px 0 cyan,
+      0 0 12px 0 cyan,
+      0 0 16px 0 cyan,
+      0 0 20px 0 cyan;
+      position: relative;
+    }
+
+    h1
+    {
+      color: white;
+      text-align: center;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <h1></h1>
+  <script>
+    const divElement = document.querySelector("div");
+    const circleDia = 100;
+
+    divElement.style.width = `${circleDia}px`;
+    divElement.style.height = `${circleDia}px`;
+
+    const speedCounter = document.querySelector('h1');
+
+    let divAtributes = JSON.parse(localStorage.getItem('divAtributes')) || {
+      x: 0,
+      y: 0,
+      color: 0,
+      speed: 10
+    };
+
+    let {x, y, color, speed} = divAtributes;
+
+    divElement.style.filter = `hue-rotate(${color}deg)`;
+    divElement.style.translate = `${x}px ${y}px`;
+
+    speedCounter.innerHTML = `Speed: ${speed}`;
+
+    let keys = {
+      w: false,
+      a: false,
+      s: false,
+      d: false
+    };
+
+    let {w, a, s, d} = keys;
+
+    window.onclick = function (event) {
+      color += 36;
+      divElement.style.filter = `hue-rotate(${color}deg)`;
+
+      localStorage.setItem('color', JSON.stringify(color));
+    }
+
+    window.onkeydown = function (event) {
+      keyStatement('down');
+      controlSpeed();
+    }
+
+    window.onkeyup = function (event) {
+      keyStatement('up');
+    }
+
+    function repeatKey () {
+      if (w) {
+        if (y - speed < 0 && y !== 0) {
+          y = 0;
+        }
+        if (!(y - speed < 0)) {
+          y -= speed;
+        }
+      }
+      if (a) {
+        if (x - speed < 0 && x !== 0) {
+          x = 0;
+        } 
+        if (!(x - speed < 0)) {
+          x -= speed;
+        }
+      }
+      if (s) {
+        if (y + circleDia + speed > innerHeight && y !== innerHeight - circleDia) {
+          y = innerHeight - circleDia;
+        }
+        if (!(y + speed > innerHeight - circleDia)) {
+          y += speed;
+        }
+      }
+      if (d) {
+        if (x + circleDia + speed > innerWidth && x !== innerWidth - circleDia) {
+          x = innerWidth - circleDia;
+        }
+        if (!(x + circleDia + speed > innerWidth)) {
+          x += speed;
+        }
+      }
+      divElement.style.translate = `${x}px ${y}px`;
+
+      divAtributes.x = x;
+      divAtributes.y = y;
+      divAtributes.color = color;
+      divAtributes.speed = speed;
+
+      localStorage.setItem('divAtributes', JSON.stringify(divAtributes))
+
+      setTimeout(repeatKey, 1000);
+    }
+
+    function keyStatement (status) {
+      if (event.key === 'w' || event.key === 'a' || event.key === 's' || event.key === 'd') {
+        if (status === 'down') {
+          if (event.key === 'w') {
+            w = true;
+          }
+          if (event.key === 'a') {
+            a = true;
+          }
+          if (event.key === 's') {
+            s = true;
+          }
+          if (event.key === 'd') {
+            d = true;
+          }
+        }
+        else if (status === 'up') {
+          if (event.key === 'w') {
+            w = false;
+          }
+          if (event.key === 'a') {
+            a = false;
+          }
+          if (event.key === 's') {
+            s = false;
+          }
+          if (event.key === 'd') {
+            d = false;
+          }
+        }
+
+        repeatKey();
+      }
+    }
+
+    function controlSpeed() {
+      if (event.key === 'ArrowUp') {
+        speed++;
+      }
+      if (event.key === 'ArrowDown' && !(speed - 1 < 1)) {
+        speed--;
+      }
+      speedCounter.innerHTML = `Speed: ${speed}`;
+
+      localStorage.setItem('speed', JSON.stringify(speed));
+    }
+  </script>
+</body>
+</html>

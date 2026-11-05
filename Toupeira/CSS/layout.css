@@ -1,0 +1,217 @@
+body {
+  background-image: url("../img/fundo.jpg");
+  background-size: 100% 100vh;
+  overflow: hidden;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  position: relative;
+}
+
+button,
+p {
+  color: white;
+  font-size: 18px;
+  font-family: arial;
+  font-weight: bold;
+}
+
+.sland-img {
+  width: 80%;
+
+  position: absolute;
+  top: 30%;
+
+  z-index: 1;
+}
+
+.placa-img {
+  width: 38%;
+
+  position: absolute;
+  top: -5%;
+}
+
+.img-video-container-div {
+  position: static;
+}
+
+.hole-video {
+  animation: ghost 5s linear infinite;
+}
+
+.hole-img,
+.hole-video {
+  width: 10%;
+
+  translate: -50% -50%;
+
+  position: absolute;
+  z-index: 2;
+
+  user-select: none;
+}
+
+.hole-1 {
+  width: 14%;
+  left: 43%;
+  top: 55%;
+}
+
+.hole-2 {
+  width: 14%;
+  left: 57%;
+  top: 55%;
+}
+
+.hole-3 {
+  width: 20%;
+  left: 40%;
+  top: 70%;
+}
+
+.hole-4 {
+  width: 20%;
+  left: 60%;
+  top: 70%;
+}
+
+.start-game-button-sect {
+  width: 90%;
+  height: 90%;
+
+  display: flex;
+  justify-content: end;
+  align-items: start;
+
+  position: absolute;
+  z-index: 2;
+}
+
+.start-game-button,
+.score-sect,
+.reset-score-button {
+  border: solid rgb(0, 41, 95) 2px;
+  border-radius: 10px;
+  background: linear-gradient(to bottom, rgb(255, 255, 255) 6%, rgb(142, 210, 255) 7%, rgb(76, 175, 255) 93%, rgb(26, 93, 148) 94%);
+}
+
+.start-game-button {
+  width: 100px;
+  height: 100px;
+  opacity: 0.85;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+
+  user-select: none;
+}
+
+.start-game-button:active,
+.reset-score-button:active {
+  opacity: 0.7;
+  border: solid rgb(142, 210, 255) 2px;
+}
+
+.start-game-icon {
+  width: 60%;
+}
+
+.score-sect {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 14px;
+
+  position: absolute;
+  bottom: 5%;
+  z-index: 2;
+}
+
+.score-div {
+  display: flex;
+}
+
+.anim-score {
+  animation: go 0.5s linear forwards;
+}
+
+@keyframes go {
+  0% {
+    opacity: 0;
+    left: 120px;
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(-45deg);
+  }
+  50% {
+    transform: rotateZ(45deg);
+  }
+  75% {
+    transform: rotateZ(-45deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+    opacity: 1;
+    left: 140px;
+  }
+}
+
+.looping {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotateZ(1turn);
+  }
+}
+
+.minus1 {
+  opacity: 0;
+  position: absolute;
+  left: 100px;
+}
+
+.anim-score {
+  animation: go 0.5s linear forwards;
+}
+
+@keyframes go {
+  0% {
+    opacity: 0;
+    left: 100px;
+    transform: rotateZ(0deg);
+    color: red;
+  }
+  25% {
+    transform: rotateZ(-35deg);
+    color: white;
+  }
+  50% {
+    transform: rotateZ(35deg);
+    color: red;
+  }
+  75% {
+    transform: rotateZ(-35deg);
+    color: white;
+  }
+  100% {
+    transform: rotateZ(0deg);
+    opacity: 1;
+    left: 120px;
+    color: red;
+  }
+}
