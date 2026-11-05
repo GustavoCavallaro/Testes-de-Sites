@@ -1,4 +1,49 @@
 :root
 {
+<<<<<<< HEAD
   --position: random(0%, 100%);
 }
+=======
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid-container
+{
+  background-color: black;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-areas: "merge";
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.grid-container img
+{
+  z-index: 0;
+  opacity: 0.3;
+  width: 100%;
+  object-fit: cover;
+}
+
+.item
+{
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  justify-items: center;
+  gap: 1rem;
+}
+
+h1,
+p,
+button
+{
+  width: 40%;
+  color: white;
+  text-align: justify;
+}
+>>>>>>> 138d32c35a0e7eb42057056f34faa80f7d6f3b69

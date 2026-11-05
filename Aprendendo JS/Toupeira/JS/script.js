@@ -17,7 +17,7 @@ let img;
 
 function changeSpeed() {
   document.querySelectorAll('video').forEach(video => {
-    videoSpeed = (score > 15)? 15 : (score === 0)? 1 : score;
+    videoSpeed = (score > 10)? 10 : (score === 0)? 1 : score;
     video.addEventListener('loadedmetadata', () => {
       video.playbackRate = videoSpeed; 
     });
@@ -37,8 +37,8 @@ scoreParagraph.innerHTML = `Score: ${score}`;
 const hole = '../img/buraco-na-grama.jpg';
 const moleGoOut = '../mp4/Toupeira-Saindo-Do-Buraco.webm';
 const moleGoIn = '../mp4/Toupeira-Sumindo.webm';
-const martelada = 'http://127.0.0.1:5500/img/martelada.png';
-const moleHitIn = '../mp4/Toupeira-Espancada-Sumindo.mp4';
+const explosion = 'http://127.0.0.1:5500/img/explosion.png';
+const moleHitIn = '../mp4/Espancada.webm';
 
 const startGameButton = document.querySelector('.js-start-game-button');
 const startGameImg = document.querySelector('.js-start-game-icon');
@@ -56,15 +56,15 @@ function changePlayButtonStatus() {
     }
 }
 
-addEventListener('keydown', event => {
+onkeydown = (event) => {
   if (event.key === ' ') {
     changePlayButtonStatus();
   }
-});
+}
 
-startGameButton.addEventListener('click', () => {
+startGameButton.onclick = () => {
   changePlayButtonStatus();
-});
+}
 
 function decidePosition() {
   const randomNumber = Math.random();
@@ -197,14 +197,12 @@ function hitMole(mole, img) {
 
   updateScore();
 
-  mole.style.display = 'none';
   img.style.display = 'block';
-  img.src = martelada;
+  img.src = explosion;
   img.style.zIndex = 4;
   removeSpawnMoleEvent();
   moleHitInTimeOutId = setTimeout(() => {
     img.style.zIndex = 2;
-    mole.style.display = 'block';
     img.style.display = 'none';
     mole.src = moleHitIn;
   }, 500 / videoSpeed);

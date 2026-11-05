@@ -1,0 +1,104 @@
+header
+{
+  background-clip: text;
+  justify-content: flex-end;
+}
+
+.menu li a
+{
+  color: black;
+}
+
+main
+{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+main::before
+{
+  content: "";
+  position: absolute;
+  background: radial-gradient(circle, transparent 0%, rgba(169, 245, 255) 40%);
+  background-size: 130%;
+  background-repeat: no-repeat;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container-screen
+{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+.container-screen img,
+.container-screen video
+{
+  height: 140%;
+  object-fit: cover;
+  position: absolute;
+  top: -100px;
+  right: 0;
+  z-index: 0;
+}
+
+section
+{
+  width: 40%;
+  height: 80%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  z-index: 2;
+}
+
+@font-face {
+  font-family: "Snow";
+  src: url(../snow-blue.regular.otf);
+}
+
+h1
+{
+  color: rgb(0, 204, 255);
+  font-family: "Snow";
+  font-size: 4rem;
+  letter-spacing: 30%;
+  text-shadow: 
+  3px 3px 0px rgb(0, 162, 173),
+  0 0 5px rgb(139, 182, 200),
+  0 0 5px rgb(139, 182, 200),
+  0 0 5px rgb(139, 182, 200),
+  0 0 5px rgb(139, 182, 200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 4;
+}
+
+p
+{
+  flex-grow: 3;
+}
+
+.buttons
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  flex-grow: 0.2;
+  gap: 1rem;
+}
+
+button
+{
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+}

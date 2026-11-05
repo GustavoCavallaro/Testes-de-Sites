@@ -1,12 +1,14 @@
 const img = document.querySelector('img');
 let frameNumber = 0;
 let framesInterval;
+let isPlaying;
 
 runAllFrames(24, 5.08);
 
 function runAllFrames(fps, seconds) {
   const framesQuantity = Math.round(seconds * fps);
   const framesPerSecond = 1000 / fps;
+  isPlaying = true;
   
   framesInterval = setInterval(() => {
     if (frameNumber >= framesQuantity) {
@@ -18,9 +20,14 @@ function runAllFrames(fps, seconds) {
 }
 
 addEventListener('keydown', (event) => {
-  if (event.key === 'p') {
-    clearInterval(framesInterval);
-    console.log('Interval Cleared');
+  if (event.key === ' ') {
+    if (isPlaying) {
+      clearInterval(framesInterval);
+      isPlaying = false;
+    }
+    else {
+      runAllFrames(24, 5.08);
+    }
   }
 });
 
